@@ -1,8 +1,18 @@
-from project.app import app
+from pathlib import Path
 
+from project.app import app, init_db
+
+
+#testing that the basic index page works
 def test_index():
     tester = app.test_client()
     response = tester.get('/', content_type='html/text')
 
     assert response.status_code == 200
     assert response.data == b'Hello, World!'
+
+
+#testing that a database file exists
+def test_database():
+    init_db()
+    assert Path("flaskr.db").is_file()
