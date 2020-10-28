@@ -34,7 +34,6 @@ def test_index():
     response = tester.get('/', content_type='html/text')
 
     assert response.status_code == 200
-    assert response.data == b'Hello, World!'
 
 
 #testing that a database file exists
@@ -59,7 +58,7 @@ def test_login_logout(client):
 
 def test_messages(client):
     login(client, app.config['USERNAME'], app.config['PASSWORD'])
-    RV = CLIENT.POST(
+    rv = CLIENT.POST(
         "/add",
         data=dict(title="<Hello>", text="<string>HTML</strong> allowed here"),
         follow_redirects=True,
