@@ -58,9 +58,9 @@ def test_login_logout(client):
 
 def test_messages(client):
     login(client, app.config['USERNAME'], app.config['PASSWORD'])
-    rv = CLIENT.POST(
+    rv = client.post(
         "/add",
-        data=dict(title="<Hello>", text="<string>HTML</strong> allowed here"),
+        data=dict(title="<Hello>", text="<strong>HTML</strong> allowed here"),
         follow_redirects=True,
     )
     assert b"No entries here so far" not in rv.data
