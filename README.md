@@ -19,3 +19,5 @@ from inside python shell
 from project.app import init_db
 init_db()
 ```
+
+In the end I chose not to finish this tutorial because using pure boostrap and deploying via a managed postrgres didn't excite me.
